@@ -106,6 +106,83 @@
             transform: scale(1.2);
         }
 
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            font-size: 24px;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: #333;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        /* Mobile Dropdown Menu */
+        .mobile-nav {
+            display: none;
+            width: 100%;
+            background: #000;
+            padding: 20px;
+            margin-top: 10px;
+            border-top: 1px solid #333;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav ul li {
+            margin: 10px 0;
+        }
+
+        .mobile-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            transition: color 0.3s;
+        }
+
+        .mobile-nav ul li a:hover {
+            color: #0066cc;
+        }
+
+        .mobile-lang-selector {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .mobile-lang-selector a {
+            font-size: 24px;
+            text-decoration: none;
+        }
+
         /* Hero Section */
         .hero {
             background-image: url('hero.jpg');
@@ -676,22 +753,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 280px;
-            padding: 0 20px;
+            min-height: 300px;
+            height: auto;
+            padding: 20px;
             margin-left: 0;
             width: 100%;
+            order: 1;
+            overflow: visible;
         }
 
         .flag-image {
-            width: 1800px;
+            width: 100%;
             height: auto;
-            max-height: 280px;
-            max-width: 100%;
+            max-width: calc(100% - 40px);
+            max-height: 300px;
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             margin: 0 auto;
             display: block;
+        }
+
+        .lt-flag {
+            max-height: 300px !important;
+            height: auto !important;
+            width: 100% !important;
+            max-width: calc(100% - 40px) !important;
+            object-fit: contain !important;
         }
 
         .country-name {
@@ -704,6 +792,7 @@
             letter-spacing: 2px;
             margin-top: 10px;
             padding: 0 20px;
+            order: 2;
         }
 
         .card-logo {
@@ -713,6 +802,7 @@
             transform: translateX(-50%);
             text-align: center;
             width: 100%;
+            order: 3;
         }
 
         .logo-image {
@@ -766,14 +856,26 @@
             }
             
             .flag-display {
-                height: 170px;
-                padding: 0 20px;
+                min-height: 180px;
+                height: auto;
+                padding: 20px;
                 margin-left: 0;
+                overflow: visible;
             }
 
             .flag-image {
-                width: 970px;
-                max-height: 170px;
+                width: 100%;
+                height: auto;
+                max-width: calc(100% - 40px);
+                max-height: 180px;
+            }
+
+            .lt-flag {
+                max-height: 180px !important;
+                height: auto !important;
+                width: 100% !important;
+                max-width: calc(100% - 40px) !important;
+                object-fit: contain !important;
             }
         }
 
@@ -843,14 +945,74 @@
                 grid-template-columns: 1fr;
             }
 
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
+            nav {
+                display: none;
+            }
+
+            .lang-selector {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
 
             .header-main {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 20px;
+            }
+
+            .logo {
+                height: 60px;
+            }
+
+            .hero-content {
+                display: none;
+            }
+
+            .hero {
+                padding: 20px 20px 20px 20px;
+            }
+
+            .quote-form {
+                margin-top: 0;
+            }
+
+            #about .heading {
+                font-size: 32px;
+                padding: 0 20px;
+                line-height: 1.2;
+                margin-bottom: 20px;
+                margin-top: 30px;
+            }
+
+            #about .col-md-12 {
+                padding: 0 15px;
+            }
+
+            #about .heading-spacer {
+                padding-bottom: 20px !important;
+            }
+
+            .col-lg-4, .col-md-4, .col-sm-4 {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            #about .col-md-6:first-of-type {
+                order: 1;
+                padding-top: 0;
+            }
+
+            #about .col-md-6:last-of-type {
+                order: 2;
+            }
+
+            #about .row {
+                display: flex;
                 flex-direction: column;
-                gap: 20px;
             }
         }
 
@@ -912,7 +1074,7 @@
     <!-- Header -->
     <header>
         <div class="header-main">
-            <div class="logo"><img src="logomazais.png" alt="Eurotransportcar"></div>
+            <div class="logo"><img src="logomazais.png" alt="Rudux"></div>
             <nav>
                 <ul>
                     <li><a href="#home">Sakums</a></li>
@@ -923,6 +1085,25 @@
                 </ul>
             </nav>
             <div class="lang-selector">
+                <a href="#" title="English">🇬🇧</a>
+                <a href="#" title="Latvian">🇱🇻</a>
+                <a href="#" title="Russian">🇷🇺</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#home">Sakums</a></li>
+                <li><a href="#services">pakalpojumi</a></li>
+                <li><a href="#cargoson">cargoson</a></li>
+                <li><a href="#about">par mums</a></li>
+                <li><a href="#contact">kontakti</a></li>
+            </ul>
+            <div class="mobile-lang-selector">
                 <a href="#" title="English">🇬🇧</a>
                 <a href="#" title="Latvian">🇱🇻</a>
                 <a href="#" title="Russian">🇷🇺</a>
@@ -995,7 +1176,7 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 text-center">
                     <h1 class="heading bold">TRANSPORTS NO SOMIJAS</h1>
-                    <div style="padding-bottom: 60px;"></div>
+                    <div class="heading-spacer" style="padding-bottom: 60px;"></div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <i class="fa fa-cloud"></i>
@@ -1073,7 +1254,7 @@
 
     <!-- Countries Section -->
     <section id="countries">
-        <h2 class="section-title" data-text="BRAUCAM VISA EIROPA">BRAUCAM VISA EIROPA 🇪🇺</h2>
+        <h2 class="section-title" data-text="BRAUCAM VISA EIROPA">BRAUCAM VISA EIROPA <img src="eu.gif" alt="EU Flag" style="display: inline-block; vertical-align: middle; height: 60px; width: auto; margin-left: 5px;"></h2>
         <div class="carousel-container">
             <div class="carousel" id="carousel">
                 <!-- Carousel items will be generated by JavaScript -->
@@ -1152,6 +1333,28 @@
         </div>
     </footer>
     <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileNav.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                const mobileLinks = mobileNav.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileNav.classList.remove('active');
+                        mobileMenuBtn.classList.remove('active');
+                    });
+                });
+            }
+        });
+
         window.addEventListener('load', function() {
             const loadingScreen = document.getElementById('loadingScreen');
             setTimeout(function() {
@@ -1183,11 +1386,14 @@
                 item.className = 'carousel-item';
                 item.dataset.index = index;
                 
+                const flagSrc = data.code === 'LT' ? 'lt.png' : `https://flagcdn.com/w320/${data.code.toLowerCase()}.png`;
+                const flagClass = data.code === 'LT' ? 'flag-image lt-flag' : 'flag-image';
+                
                 item.innerHTML = `
                     <div class="service-card">
                         <div class="card-number">0${data.id}</div>
                         <div class="flag-display">
-                            <img src="https://flagcdn.com/w320/${data.code.toLowerCase()}.png" alt="${data.name}" class="flag-image">
+                            <img src="${flagSrc}" alt="${data.name}" class="${flagClass}">
                         </div>
                         <div class="country-name">${data.name}</div>
                         <div class="card-logo">
