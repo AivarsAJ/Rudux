@@ -28,6 +28,11 @@
             text-rendering: optimizeSpeed;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23000000" d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>') 0 0, auto;
+        }
+
+        * {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23000000" d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>') 0 0, auto;
         }
 
         /* Header */
@@ -309,6 +314,20 @@
         .team-wrapper {
             margin-bottom: 20px;
             margin-top: 80px;
+            transition: transform 0.3s ease;
+        }
+
+        .team-wrapper:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .team-wrapper img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-wrapper:hover img {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         #team .col-md-4:first-of-type {
@@ -544,6 +563,218 @@
 
         #about .progress .progress-bar-primary {
             background: #000;
+        }
+
+        /* Countries Section */
+        #countries {
+            background: #ffffff;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        #countries .section-title {
+            font-family: 'Bebas Neue', 'Russo One', 'Orbitron', Arial, sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            background: #ffffff;
+            color: #000000;
+            margin-bottom: 0;
+            margin-top: -30px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 10px 0 0 0;
+            border-radius: 15px 15px 0 0;
+            text-shadow: 0 2px 4px rgba(42, 42, 42, 0.2), 0 4px 8px rgba(42, 42, 42, 0.15);
+        }
+
+        /* 3D Carousel Container */
+        .carousel-container {
+            width: 100%;
+            max-width: 1800px;
+            height: 650px;
+            perspective: 1400px;
+            position: relative;
+            padding-top: 0;
+            margin: 0 auto;
+            transform: translateX(-35px);
+            margin-top: -60px;
+            margin-bottom: 0;
+        }
+        
+        .carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .carousel-item {
+            position: absolute;
+            width: 324px;
+            height: 396px;
+            left: 50%;
+            top: 50%;
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            cursor: pointer;
+            transform-origin: center center;
+        }
+        
+        .service-card {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            animation: scanline 3s linear infinite;
+        }
+        
+        @keyframes scanline {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(500px); }
+        }
+        
+        .card-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 72px;
+            font-weight: 900;
+            color: rgba(255, 0, 0, 0.1);
+            font-family: 'Orbitron', 'Bebas Neue', monospace;
+        }
+        
+        .carousel-item:hover .service-card {
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 50px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .flag-display {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 280px;
+            padding: 0 20px;
+            margin-left: 0;
+            width: 100%;
+        }
+
+        .flag-image {
+            width: 1800px;
+            height: auto;
+            max-height: 280px;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            display: block;
+        }
+
+        .country-name {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            padding: 0 20px;
+        }
+
+        .card-logo {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 100%;
+        }
+
+        .logo-image {
+            height: 40px;
+            width: auto;
+            opacity: 0.7;
+            filter: brightness(0) invert(1);
+        }
+        
+        /* Carousel Controls */
+        .carousel-controls {
+            position: absolute;
+            bottom: -130px;
+            left: 50%;
+            transform: translateX(-20%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+        
+        .carousel-btn {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #242424, #1a1a1a);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: #ff0000;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .carousel-btn:hover {
+            border-color: #ff0000;
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .carousel-container {
+                height: 360px;
+            }
+            
+            .carousel-item {
+                width: 216px;
+                height: 288px;
+            }
+            
+            .flag-display {
+                height: 170px;
+                padding: 0 20px;
+                margin-left: 0;
+            }
+
+            .flag-image {
+                width: 970px;
+                max-height: 170px;
+            }
         }
 
         .container {
@@ -840,11 +1071,21 @@
         </div>
     </section>
 
+    <!-- Countries Section -->
+    <section id="countries">
+        <h2 class="section-title" data-text="BRAUCAM VISA EIROPA">BRAUCAM VISA EIROPA 🇪🇺</h2>
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <!-- Carousel items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
     <!-- Stats Section -->
     <section class="stats">
         <div class="stats-container">
             <h2 style="font-size: 36px; margin-bottom: 20px;">IKDIENAS MARŠUTI CAUR VISU EIROPU 🇪🇺</h2>
-            <p style="font-size: 20px; margin-bottom: 30px;">Mēs braucam 48 valstīs</p>
+            <p style="font-size: 20px; margin-bottom: 30px;">MĒS BRAUCAM 48 VALSTĪS</p>
             <div class="stats-grid">
                 <div class="stat-item">
                     <h3>13+</h3>
@@ -919,6 +1160,156 @@
                     loadingScreen.style.display = 'none';
                 }, 500);
             }, 500);
+
+            // 3D Carousel Initialization
+            const countriesData = [
+                { id: 1, flag: '🇪🇪', name: 'Igaunija', code: 'EE' },
+                { id: 2, flag: '🇱🇹', name: 'Lietuva', code: 'LT' },
+                { id: 3, flag: '🇵🇱', name: 'Polija', code: 'PL' },
+                { id: 4, flag: '🇸🇪', name: 'Zviedrija', code: 'SE' },
+                { id: 5, flag: '🇫🇮', name: 'Somija', code: 'FI' },
+                { id: 6, flag: '🇩🇰', name: 'Dānija', code: 'DK' },
+                { id: 7, flag: '🇩🇪', name: 'Vācija', code: 'DE' },
+                { id: 8, flag: '🇧🇾', name: 'Baltkrievija', code: 'BY' },
+                { id: 9, flag: '🇷🇺', name: 'Krievija', code: 'RU' },
+                { id: 10, flag: '🇳🇴', name: 'Norvēģija', code: 'NO' }
+            ];
+            
+            let currentIndex = 0;
+            const carousel = document.getElementById('carousel');
+            
+            function createCarouselItem(data, index) {
+                const item = document.createElement('div');
+                item.className = 'carousel-item';
+                item.dataset.index = index;
+                
+                item.innerHTML = `
+                    <div class="service-card">
+                        <div class="card-number">0${data.id}</div>
+                        <div class="flag-display">
+                            <img src="https://flagcdn.com/w320/${data.code.toLowerCase()}.png" alt="${data.name}" class="flag-image">
+                        </div>
+                        <div class="country-name">${data.name}</div>
+                        <div class="card-logo">
+                            <img src="logomazais.png" alt="Rudux Logo" class="logo-image">
+                        </div>
+                    </div>
+                `;
+                
+                return item;
+            }
+            
+            function initCarousel() {
+                if (!carousel) return;
+                
+                countriesData.forEach((data, index) => {
+                    const item = createCarouselItem(data, index);
+                    carousel.appendChild(item);
+                });
+                
+                updateCarousel();
+            }
+            
+            function updateCarousel() {
+                const items = document.querySelectorAll('.carousel-item');
+                const totalItems = items.length;
+                const isMobile = window.innerWidth <= 768;
+                const isTablet = window.innerWidth <= 1024;
+                
+                items.forEach((item, index) => {
+                    let offset = index - currentIndex;
+                    
+                    if (offset > totalItems / 2) {
+                        offset -= totalItems;
+                    } else if (offset < -totalItems / 2) {
+                        offset += totalItems;
+                    }
+                    
+                    const absOffset = Math.abs(offset);
+                    const sign = offset < 0 ? -1 : 1;
+                    
+                    item.style.transform = '';
+                    item.style.opacity = '';
+                    item.style.zIndex = '';
+                    item.style.transition = 'all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1)';
+                    
+                    let spacing1 = 346;
+                    let spacing2 = 518;
+                    let spacing3 = 648;
+                    
+                    if (isMobile) {
+                        spacing1 = 202;
+                        spacing2 = 302;
+                        spacing3 = 396;
+                    } else if (isTablet) {
+                        spacing1 = 288;
+                        spacing2 = 432;
+                        spacing3 = 540;
+                    }
+                    
+                    if (absOffset === 0) {
+                        item.style.transform = 'translate(-50%, -50%) translateZ(0) scale(1)';
+                        item.style.opacity = '1';
+                        item.style.zIndex = '10';
+                    } else if (absOffset === 1) {
+                        const translateX = sign * spacing1;
+                        const rotation = isMobile ? 25 : 30;
+                        const scale = isMobile ? 0.88 : 0.85;
+                        item.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateZ(-200px) rotateY(${-sign * rotation}deg) scale(${scale})`;
+                        item.style.opacity = '0.8';
+                        item.style.zIndex = '5';
+                    } else if (absOffset === 2) {
+                        const translateX = sign * spacing2;
+                        const rotation = isMobile ? 35 : 40;
+                        const scale = isMobile ? 0.75 : 0.7;
+                        item.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateZ(-350px) rotateY(${-sign * rotation}deg) scale(${scale})`;
+                        item.style.opacity = '0.5';
+                        item.style.zIndex = '3';
+                    } else if (absOffset === 3) {
+                        const translateX = sign * spacing3;
+                        const rotation = isMobile ? 40 : 45;
+                        const scale = isMobile ? 0.65 : 0.6;
+                        item.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateZ(-450px) rotateY(${-sign * rotation}deg) scale(${scale})`;
+                        item.style.opacity = '0.3';
+                        item.style.zIndex = '2';
+                    } else {
+                        item.style.transform = 'translate(-50%, -50%) translateZ(-500px) scale(0.5)';
+                        item.style.opacity = '0';
+                        item.style.zIndex = '1';
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % countriesData.length;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + countriesData.length) % countriesData.length;
+                updateCarousel();
+            }
+            
+            // Auto-rotate carousel
+            setInterval(nextSlide, 5000);
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'ArrowRight') nextSlide();
+            });
+            
+            // Update carousel on window resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    updateCarousel();
+                }, 250);
+            });
+            
+            // Initialize carousel
+            initCarousel();
         });
     </script>
 </body>
